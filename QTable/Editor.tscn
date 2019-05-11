@@ -1,0 +1,204 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Editor.gd" type="Script" id=1]
+[ext_resource path="res://MLTiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://emerald.png" type="Texture" id=4]
+[ext_resource path="res://Cursor.gd" type="Script" id=5]
+[ext_resource path="res://TestFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Button.gd" type="Script" id=7]
+[ext_resource path="res://BackButton.gd" type="Script" id=8]
+[ext_resource path="res://MLTiles.png" type="Texture" id=9]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+
+[node name="Items" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+
+[node name="UpWall" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+
+[node name="DownWall" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+
+[node name="LeftWall" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+
+[node name="RightWall" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+
+[node name="WinLossStates" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+format = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 179.322, 181.419 )
+current = true
+script = ExtResource( 3 )
+
+[node name="Cursor" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.588235 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+tileset = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="Cursor"]
+visible = false
+margin_left = -20.0932
+margin_top = -15.6659
+margin_right = 19.9068
+margin_bottom = 14.3341
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+margin_right = 81.0
+margin_bottom = 266.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5.0
+
+[node name="SizeLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_right = 81.0
+margin_bottom = 14.0
+text = "Size: 6,6"
+align = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 18.0
+margin_right = 81.0
+margin_bottom = 32.0
+text = "Discount"
+align = 1
+
+[node name="Discount" type="SpinBox" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 36.0
+margin_right = 81.0
+margin_bottom = 60.0
+max_value = 1.0
+step = 0.01
+value = 0.1
+align = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 64.0
+margin_right = 81.0
+margin_bottom = 95.0
+text = "Learning
+Rate"
+align = 1
+
+[node name="LearningRate" type="SpinBox" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 99.0
+margin_right = 81.0
+margin_bottom = 123.0
+max_value = 1.0
+step = 0.01
+value = 0.1
+align = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 127.0
+margin_right = 81.0
+margin_bottom = 158.0
+text = "Number of
+Trains"
+align = 1
+
+[node name="NumTrain" type="SpinBox" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 162.0
+margin_right = 81.0
+margin_bottom = 186.0
+max_value = 1000.0
+align = 1
+
+[node name="load" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 190.0
+margin_right = 81.0
+margin_bottom = 210.0
+text = "Load"
+script = ExtResource( 7 )
+
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer/Panel/VBoxContainer/load"]
+margin_left = 2.0
+margin_top = -170.0
+margin_right = 463.0
+margin_bottom = 93.0
+window_title = "Open a File"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.qmap ; Q Table Map" )
+current_dir = "C:/Users/noreg/Documents/QTable"
+current_path = "C:/Users/noreg/Documents/QTable/"
+
+[node name="save" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 214.0
+margin_right = 81.0
+margin_bottom = 234.0
+text = "Save"
+script = ExtResource( 7 )
+
+[node name="FileDialog" type="FileDialog" parent="CanvasLayer/Panel/VBoxContainer/save"]
+margin_top = -195.0
+margin_right = 463.0
+margin_bottom = 67.0
+popup_exclusive = true
+resizable = true
+access = 2
+filters = PoolStringArray( "*.qmap ; Q Table Map" )
+current_dir = "C:/Users/noreg/Documents/QTable"
+current_path = "C:/Users/noreg/Documents/QTable/"
+
+[node name="back" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+margin_top = 238.0
+margin_right = 81.0
+margin_bottom = 258.0
+text = "Back"
+script = ExtResource( 8 )
+
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+visible = false
+margin_left = 78.0
+margin_right = 176.0
+margin_bottom = 46.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel2"]
+margin_left = 5.0
+margin_right = 84.0
+margin_bottom = 14.0
+text = "Value Painter"
+
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer/Panel2"]
+margin_left = 10.7802
+margin_top = 16.427
+margin_right = 84.7802
+margin_bottom = 40.427
+allow_greater = true
+allow_lesser = true
+
+[node name="Player" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 9 )
+offset = Vector2( 32, 32 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 64, 64 )
+

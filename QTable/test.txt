@@ -1,0 +1,1 @@
+{"agent_start":"random","data":[[[3,2],1000,"item","Coin"],[[3,1],1000,"item","Fire"],[[2,1],[false,true],"wall","wall"],[[4,3],[true,false],"wall","wall"]],"discount":0.1,"learning_rate":0.1,"numtrain":0,"size":[6,6],"win_loss_states":[]}

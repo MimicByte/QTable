@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MLTiles.png" type="Texture" id=1]
+[ext_resource path="res://coin.png" type="Texture" id=2]
+[ext_resource path="res://emerald.png" type="Texture" id=3]
+[ext_resource path="res://walls.png" type="Texture" id=4]
+[ext_resource path="res://win.png" type="Texture" id=5]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Floor" type="Sprite" parent="."]
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="Diamond" type="Sprite" parent="."]
+position = Vector2( 100, 32 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 64, 64 )
+
+[node name="Fire" type="Sprite" parent="."]
+position = Vector2( 160, 30 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+
+[node name="Coin" type="Sprite" parent="."]
+position = Vector2( 230, 30 )
+texture = ExtResource( 2 )
+
+[node name="Emerald" type="Sprite" parent="."]
+position = Vector2( 100, 90 )
+texture = ExtResource( 3 )
+
+[node name="WallDown" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[node name="WallLeft" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 64, 64 )
+
+[node name="WallRight" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 64, 64, 64 )
+
+[node name="WallUp" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+
+[node name="WinLoss" type="Sprite" parent="."]
+position = Vector2( 40, 100 )
+texture = ExtResource( 5 )
+
