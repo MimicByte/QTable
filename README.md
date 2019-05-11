@@ -1,5 +1,5 @@
 # QTable
-An interactive Q Table program to help teach reinforcement learning
+An interactive Q Table program to help teach reinforcement learning. [Current Release Here](https://github.com/bioa10/QTable/releases/tag/V1)
 
 # Editor Controls
 Arrow Keys: Changes map size
